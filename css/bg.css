@@ -1,0 +1,264 @@
+.todoBg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+
+  -ms-overflow-style: none;
+}
+
+.todoBg::-webkit-scrollbar {
+  display: none;
+}
+
+/* 하늘 색 바꾸기 */
+.main_box {
+  width: 100%;
+  height: 700px;
+  -webkit-animation: color-change-sky 60s linear infinite alternate-reverse both;
+  animation: color-change-sky 60s linear infinite alternate-reverse both;
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 5%,
+    rgba(0, 0, 0, 0.7) 70%
+  );
+  mask-image: linear-gradient(to top, transparent 5%, black 30%);
+  mask-position: top;
+  mask-repeat: no-repeat;
+  filter: blur(10);
+}
+
+.inner {
+  width: 100%;
+  height: 700px;
+  background-image: url(../images/bg2.png);
+  background-position: bottom 55% right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  mask-image: linear-gradient(to top, transparent, black 40%);
+  mask-position: top;
+  mask-repeat: no-repeat;
+}
+
+/* 하늘 색 애니메이션 */
+@-webkit-keyframes color-change-sky {
+  0% {
+    background: linear-gradient(to bottom, #c1e0f8, #c1e0f8af);
+  }
+  10% {
+    background: linear-gradient(to bottom, #afd8f7, #afd8f791);
+  }
+  20% {
+    background: linear-gradient(to bottom, #7fc2f6, #7fc2f691);
+  }
+  30% {
+    background: linear-gradient(to bottom, #3e87fd, #3e87fdb6);
+  }
+  40% {
+    background: linear-gradient(to bottom, #e39607, #e3960781);
+  }
+  50% {
+    background: linear-gradient(to bottom, #e16417ef, #e164178d);
+  }
+  60% {
+    background: linear-gradient(to bottom, #fd6625e8, #fd66256a);
+  }
+  70% {
+    background: linear-gradient(to bottom, #840172, #840173a4);
+  }
+  75% {
+    background: linear-gradient(to bottom, #52025d, #52025d98);
+  }
+  80% {
+    background: linear-gradient(to bottom, #42014a, #41014aad);
+  }
+  90% {
+    background: linear-gradient(to bottom, #5f056b, #5f056b87);
+  }
+  100% {
+    background: linear-gradient(to bottom, #110035, #1100359a);
+  }
+}
+@keyframes color-change-sky {
+  0% {
+    background: #c1e0f8;
+  }
+  10% {
+    background: #afd8f7;
+  }
+  20% {
+    background: #7fc2f6;
+  }
+  30% {
+    background: #3e87fd;
+  }
+  40% {
+    background: #e39607;
+  }
+  50% {
+    background: #e16417ef;
+  }
+  60% {
+    background: #fd6625e8;
+  }
+  70% {
+    background: #840172;
+  }
+  75% {
+    background: #52025d;
+  }
+  80% {
+    background: #42014a;
+  }
+  90% {
+    background: #5f056b;
+  }
+  100% {
+    background: #110035;
+  }
+}
+
+/* 새 X 3*/
+.bird {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+  background-size: auto 100%;
+  width: 88px;
+  height: 125px;
+  will-change: background-position;
+
+  animation-name: fly-cycle;
+  animation-timing-function: steps(10);
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-delay: -0.5s;
+}
+
+.bird-two {
+  animation-duration: 1.6s;
+  animation-delay: -0.25s;
+}
+
+.bird-two {
+  animation-duration: 2s;
+  animation-delay: -0.75s;
+}
+
+.bird-container {
+  z-index: 100;
+  width: 100px;
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  transform: scale(0) translateX(-10vw);
+  will-change: transform;
+  animation-name: fly-right-one;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 15s;
+  animation-delay: 0;
+  overflow: hidden;
+}
+
+.bird-container-two {
+  animation-name: fly-right-two;
+  animation-duration: 20s;
+  animation-delay: 8s;
+}
+
+.bird-container-two {
+  animation-name: fly-right-three;
+  animation-duration: 25s;
+  animation-delay: 5s;
+}
+
+/* 새 애니메이션 */
+@keyframes fly-cycle {
+  100% {
+    background-position: -900px 0;
+  }
+}
+
+@keyframes fly-right-one {
+  0% {
+    transform: scale(0.3) translateX(-10vw);
+  }
+  10% {
+    transform: translateY(2vh) translateX(10vw) scale(0.2);
+  }
+  20% {
+    transform: translateY(0vh) translateX(30vw) scale(0.3);
+  }
+  30% {
+    transform: translateY(4vh) translateX(50vw) scale(0.2);
+  }
+  40% {
+    transform: translateY(2vh) translateX(70vw) scale(0.3);
+  }
+  50% {
+    transform: translateY(3vh) translateX(90vw) scale(0.3);
+  }
+  60% {
+    transform: translateY(1vh) translateX(110vw) scale(0.2);
+  }
+  100% {
+    transform: translateY(2vh) translateX(110vw) scale(0.2);
+  }
+}
+
+@keyframes fly-right-two {
+  0% {
+    transform: translateY(4vh) scale(0.1) translateX(-10vw);
+  }
+  10% {
+    transform: translateY(3vh) translateX(10vw) scale(0.2);
+  }
+  20% {
+    transform: translateY(2vh) translateX(30vw) scale(0.2);
+  }
+  30% {
+    transform: translateY(4vh) translateX(50vw) scale(0.2);
+  }
+  40% {
+    transform: translateY(2vh) translateX(70vw) scale(0.3);
+  }
+  50% {
+    transform: translateY(1vh) translateX(90vw) scale(0.2);
+  }
+  60% {
+    transform: translateY(2vh) translateX(110vw) scale(0.3);
+  }
+  100% {
+    transform: translateY(3vh) translateX(110vw) scale(0.2);
+  }
+}
+
+@keyframes fly-right-three {
+  0% {
+    transform: translateY(2vh) scale(0.1) translateX(-10vw);
+  }
+  10% {
+    transform: translateY(1vh) translateX(10vw) scale(0.2);
+  }
+  20% {
+    transform: translateY(3vh) translateX(30vw) scale(0.2);
+  }
+  30% {
+    transform: translateY(2vh) translateX(50vw) scale(0.3);
+  }
+  40% {
+    transform: translateY(3vh) translateX(70vw) scale(0.3);
+  }
+  50% {
+    transform: translateY(4vh) translateX(90vw) scale(0.2);
+  }
+  60% {
+    transform: translateY(3vh) translateX(110vw) scale(0.2);
+  }
+  100% {
+    transform: translateY(2vh) translateX(110vw) scale(0.1);
+  }
+}
