@@ -109,7 +109,10 @@ const setCurrentId = (newCurrentId) => {
 const appendTodos = (text) => {
   const loadedToDoList = localStorage.getItem("todos");
   const parsedToDoList = JSON.parse(loadedToDoList);
-  const lastValue = parsedToDoList[parsedToDoList.length - 1];
+  const index = parsedToDoList.length;
+  const lastValue = parsedToDoList[index - 1];
+
+  console.log(index, index - 1);
 
   if (parsedToDoList.length == 0) {
     setCurrentId(0);
@@ -194,7 +197,7 @@ const modifyTodo = (e, todoId) => {
 
 //할 일 삭제
 const deleteTodo = (todoId) => {
-  console.log(todoId);
+  // console.log(todoId);
   //삭제하고자 하는 todo를 제외한 새로운 배열을 다시 todos에 담아주기
   const newTodos = getAllTodos().filter((todo) => todo.id !== todoId);
   setTodos(newTodos);
