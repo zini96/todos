@@ -110,8 +110,8 @@ const appendTodos = (text) => {
   const loadedToDoList = localStorage.getItem("todos");
   const parsedToDoList = JSON.parse(loadedToDoList);
   const lastValue = parsedToDoList[parsedToDoList.length - 1];
-  console.log("PTD >>",parsedToDoList, "LV >>" , lastValue);
-  if (lastValue == undefined || lastValue == "null") {
+  // console.log("PTD >>",parsedToDoList, "LV >>" , lastValue);
+  if (lastValue == undefined || lastValue == null) {
     setCurrentId(0);
   } else {
     setCurrentId(lastValue.id);
