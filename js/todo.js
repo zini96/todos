@@ -111,7 +111,7 @@ const appendTodos = (text) => {
   const parsedToDoList = JSON.parse(loadedToDoList);
   const lastValue = parsedToDoList[parsedToDoList.length - 1];
   console.log(lastValue);
-  if (lastValue == undefined) {
+  if (lastValue == "undefined" || lastValue == "null") {
     setCurrentId(0);
   } else {
     setCurrentId(lastValue.id);
