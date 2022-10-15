@@ -39,7 +39,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  mask-image: linear-gradient(to top, transparent, black 40%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 25%);
+  mask-image: linear-gradient(to top, transparent 0%, black 25%);
   mask-position: top;
   mask-repeat: no-repeat;
 }
