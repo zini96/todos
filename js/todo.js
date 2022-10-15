@@ -21,6 +21,8 @@ function loadToDoList() {
     const parsedToDoList = JSON.parse(loadedToDoList);
     const newTodos = parsedToDoList;
     setTodos(newTodos);
+  } else {
+    localStorage.setItem("todos", JSON.stringify(todos));
   }
 }
 
@@ -109,15 +111,16 @@ const setCurrentId = (newCurrentId) => {
 const appendTodos = (text) => {
   const loadedToDoList = localStorage.getItem("todos");
   const parsedToDoList = JSON.parse(loadedToDoList);
-  const index = parsedToDoList.length;
-  const lastValue = parsedToDoList[index - 1];
+  const lastValue = parsedToDoList[parsedToDoList.length - 1];
 
-  console.log(index, index - 1);
+  console.log(parsedToDoList, lastValue);
 
-  if (parsedToDoList.length == 0) {
+  if (lastValue == undefined) {
     setCurrentId(0);
+    console.log("첫번째 할일");
   } else {
     setCurrentId(lastValue.id);
+    console.log("할일 추가");
   }
 
   const newId = CurrentId + 1; //새롭게 저장되는 할 일의 id값
@@ -344,6 +347,7 @@ const init = () => {
   setLeftItems(); //남은 할 일 개수 표시
   loadToDoList();
   paintTodos();
+  localStorage.setItem("todos", JSON.stringify(todos));
 };
 
 init();
